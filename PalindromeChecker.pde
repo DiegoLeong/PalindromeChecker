@@ -14,16 +14,34 @@ public void setup()
     }
   }
 }
+
 public boolean palindrome(String word)
 {
-  //your code here
-  return false;
+  //lowecasify
+  String modded = onlyLetters(((word.replaceAll(" ","")).toLowerCase()));
+  //basic drome func
+  boolean pal = false;
+  if(reverse(modded).equals(modded))
+    pal = true;
+  return pal;
 }
-public String reverse(String str)
+public String reverse(String rev)
 {
-    String sNew = new String();
-    //your code here
-    return sNew;
+  String g = "";
+  for(int i = rev.length()-1; i>=0; i--)
+  {
+    g+= rev.substring(i,i+1);
+  }
+  return g;
 }
 
-
+public String onlyLetters(String sString){
+  String letta = "";
+  for(int i = 0; i <= sString.length()-1; i++)
+  {
+    char leda = sString.charAt(i);
+   if(Character.isLetter(leda) == true)
+      letta+= leda;
+   }
+  return letta;
+}
